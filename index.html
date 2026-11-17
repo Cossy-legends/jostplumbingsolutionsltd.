@@ -5,100 +5,813 @@
     <meta charset="utf-8">
     <title>Jost Plumbing Solutions Ltd.</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="Professional plumbing repairs, installations, emergency plumbing, drainage and water systems maintenance in Nairobi, Kenya." name="description">
+    <meta content="plumbing services, plumbing repairs, Nairobi plumbers, drainage solutions" name="keywords">
 
-    <!-- Favicon -->
     <link href="img/jost logo.jpg" rel="icon">
 
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
 
-    <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
 
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* GLOBAL SETTINGS */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* WHATSAPP ORDER SECTION */
+        .whatsapp-order-section {
+            position: relative;
+            overflow: hidden;
+            padding: 75px 20px;
+            background: linear-gradient(120deg, #071b33, #063d61, #087c8c);
+            background-size: 200% 200%;
+            animation: orderBackground 9s ease infinite;
+            color: #fff;
+        }
+
+        .whatsapp-order-section::before,
+        .whatsapp-order-section::after {
+            content: "";
+            position: absolute;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .whatsapp-order-section::before {
+            width: 350px;
+            height: 350px;
+            top: -170px;
+            right: -80px;
+        }
+
+        .whatsapp-order-section::after {
+            width: 250px;
+            height: 250px;
+            bottom: -150px;
+            left: -60px;
+        }
+
+        .order-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .order-label {
+            display: inline-block;
+            padding: 8px 17px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 30px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .order-heading {
+            color: #fff;
+            font-size: clamp(30px, 4vw, 48px);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .order-description {
+            color: rgba(255,255,255,0.85);
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 650px;
+            margin: 0 auto 28px;
+        }
+
+        .whatsapp-order-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 17px 32px;
+            border-radius: 50px;
+            background: #25D366;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 10px 30px rgba(37,211,102,0.25);
+            animation: whatsappPulse 2s infinite;
+            transition: all 0.35s ease;
+        }
+
+        .whatsapp-order-btn:hover {
+            background: #1ebe5d;
+            color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(37,211,102,0.4);
+        }
+
+        .whatsapp-order-btn i {
+            font-size: 23px;
+        }
+
+        .order-note {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            font-size: 13px;
+            margin-top: 18px;
+        }
+
+        @keyframes whatsappPulse {
+            0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.45); }
+            70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
+            100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+        }
+
+        @keyframes orderBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* SERVICE CARDS */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h1 {
+            font-size: 34px;
+            font-weight: 800;
+            color: #0b0b0b;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #777;
+            font-size: 15px;
+        }
+
+        .service-card {
+            height: 100%;
+            background: #fff;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.04);
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.13);
+        }
+
+        .service-card img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.07);
+        }
+
+        .service-content {
+            padding: 28px 24px;
+            text-align: center;
+        }
+
+        .service-content h5 {
+            font-size: 19px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #111;
+        }
+
+        .service-content p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .book-btn {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 13px;
+            border-radius: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+        }
+
+        .book-btn:hover {
+            background: #25D366;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .book-btn i {
+            font-size: 19px;
+        }
+
+        /* FULL-SCREEN SERVICES */
+        .full-services-section {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 55px 3vw;
+        }
+
+        .full-services-section > .container {
+            width: 100%;
+            max-width: none;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        /* =========================
+           GALLERY SECTION
+        ========================= */
+
+        .gallery-section {
+            width: 100%;
+            padding: 90px 0;
+            background: #f7f9fc;
+            overflow: hidden;
+        }
+
+        .gallery-heading {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 35px;
+            padding: 0 15px;
+        }
+
+        .gallery-heading .gallery-subtitle {
+            color: #087c8c;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .gallery-heading h1 {
+            font-size: clamp(30px, 4vw, 45px);
+            font-weight: 800;
+            color: #101820;
+            margin-bottom: 15px;
+        }
+
+        .gallery-heading p {
+            color: #697681;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 35px 0 40px;
+        }
+
+        .gallery-filter button {
+            border: 1px solid #dce3e9;
+            background: #fff;
+            color: #263746;
+            padding: 12px 27px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-filter button:hover,
+        .gallery-filter button.active {
+            background: #087c8c;
+            color: #fff;
+            border-color: #087c8c;
+            box-shadow: 0 8px 20px rgba(8,124,140,0.2);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .gallery-item {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-radius: 16px;
+            background: #101820;
+            cursor: pointer;
+            border: none;
+            padding: 0;
+            display: block;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.16);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.07);
+        }
+
+        .gallery-item::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent 55%);
+            pointer-events: none;
+        }
+
+        .gallery-item-label {
+            position: absolute;
+            z-index: 2;
+            bottom: 17px;
+            left: 18px;
+            right: 18px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .gallery-video-placeholder {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(145deg, #071b33, #07516b, #087c8c);
+            color: #fff;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        /* ACTUAL VIDEO THUMBNAILS */
+        .gallery-video-thumb {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            background: #101820;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .gallery-video-placeholder.thumbnail-loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .gallery-video-placeholder .video-play-icon {
+            width: 75px;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255,255,255,0.85);
+            border-radius: 50%;
+            background: rgba(255,255,255,0.13);
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .video-play-icon {
+            background: #25D366;
+            border-color: #25D366;
+            transform: scale(1.1);
+        }
+
+        .gallery-video-placeholder .video-play-icon i {
+            font-size: 25px;
+            margin-left: 5px;
+        }
+
+        .gallery-video-placeholder span {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .gallery-video-placeholder small {
+            color: rgba(255,255,255,0.7);
+            margin-top: 7px;
+        }
+
+        .gallery-item.video-item::after {
+            background: linear-gradient(to top, rgba(0,0,0,0.55), transparent 55%);
+        }
+
+        .gallery-item[hidden] {
+            display: none !important;
+        }
+
+        /* GALLERY VIEWER */
+        .gallery-viewer {
+            display: none;
+            position: fixed;
+            z-index: 100000;
+            inset: 0;
+            background: rgba(0,0,0,0.96);
+            justify-content: center;
+            align-items: center;
+            padding: 65px 75px;
+        }
+
+        .gallery-viewer.show {
+            display: flex;
+        }
+
+        .gallery-viewer-content {
+            width: min(88vw, 900px);
+            height: min(82vh, 900px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .gallery-viewer-content img,
+        .gallery-viewer-content video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+            border-radius: 5px;
+        }
+
+        .gallery-viewer-close,
+        .gallery-viewer-prev,
+        .gallery-viewer-next {
+            position: absolute;
+            z-index: 5;
+            border: none;
+            color: #fff;
+            background: rgba(255,255,255,0.13);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-viewer-close:hover,
+        .gallery-viewer-prev:hover,
+        .gallery-viewer-next:hover {
+            background: #087c8c;
+            color: #fff;
+        }
+
+        .gallery-viewer-close {
+            top: 20px;
+            right: 25px;
+            font-size: 25px;
+        }
+
+        .gallery-viewer-prev {
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .gallery-viewer-next {
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .gallery-viewer-counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            background: rgba(0,0,0,0.6);
+            padding: 8px 17px;
+            border-radius: 30px;
+            font-size: 13px;
+            z-index: 6;
+        }
+
+        .gallery-viewer-hint {
+            position: absolute;
+            top: 22px;
+            left: 25px;
+            color: rgba(255,255,255,0.7);
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* PAYMENT */
+        .mpesa-card {
+            background: linear-gradient(135deg, #00a651, #00c853);
+            color: white;
+            padding: 18px;
+            border-radius: 12px;
+            margin: 15px 0;
+            animation: mpesaPulse 2s infinite;
+        }
+
+        .mpesa-header {
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .mpesa-body .label {
+            font-size: 12px;
+        }
+
+        .mpesa-body .value {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        @keyframes mpesaPulse {
+            0% { box-shadow: 0 0 10px rgba(0,255,100,0.4); }
+            50% { box-shadow: 0 0 25px rgba(0,255,100,0.8); }
+            100% { box-shadow: 0 0 10px rgba(0,255,100,0.4); }
+        }
+
+        @media (min-width: 992px) {
+            .full-services-section {
+                min-height: 100vh;
+                padding: 55px 3vw;
+            }
+
+            .full-services-section > .container {
+                max-width: none;
+            }
+
+            .full-services-section .row {
+                max-width: 1700px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .full-services-section .service-card {
+                min-height: 100%;
+            }
+
+            .full-services-section .service-card img {
+                height: 200px;
+            }
+
+            .full-services-section .service-content {
+                padding: 20px 18px;
+            }
+
+            .gallery-section > .container-fluid {
+                padding-left: 55px;
+                padding-right: 55px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 17px;
+            }
+
+            .gallery-section {
+                padding: 70px 0;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .whatsapp-order-section {
+                padding: 60px 18px;
+            }
+
+            .order-heading {
+                font-size: 31px;
+            }
+
+            .whatsapp-order-btn {
+                width: 100%;
+                max-width: 330px;
+                padding: 16px 20px;
+            }
+
+            .section-title h1 {
+                font-size: 28px;
+            }
+
+            .service-card img {
+                height: 220px;
+            }
+
+            .gallery-section {
+                padding: 60px 0;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            .gallery-item {
+                border-radius: 11px;
+            }
+
+            .gallery-item-label {
+                bottom: 12px;
+                left: 12px;
+                right: 12px;
+                font-size: 12px;
+            }
+
+            .gallery-video-placeholder .video-play-icon {
+                width: 55px;
+                height: 55px;
+            }
+
+            .gallery-video-placeholder .video-play-icon i {
+                font-size: 19px;
+            }
+
+            .gallery-video-placeholder span {
+                font-size: 10px;
+            }
+
+            .gallery-viewer {
+                padding: 60px 10px;
+            }
+
+            .gallery-viewer-content {
+                width: 100%;
+                height: 75vh;
+            }
+
+            .gallery-viewer-close {
+                top: 12px;
+                right: 12px;
+            }
+
+            .gallery-viewer-prev {
+                left: 8px;
+            }
+
+            .gallery-viewer-next {
+                right: 8px;
+            }
+
+            .gallery-viewer-prev,
+            .gallery-viewer-next {
+                width: 40px;
+                height: 40px;
+                font-size: 17px;
+            }
+
+            .gallery-viewer-hint {
+                left: 12px;
+                top: 20px;
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .gallery-grid {
+                gap: 9px;
+            }
+
+            .gallery-video-placeholder .video-play-icon {
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Spinner Start -->
+
+    <!-- SPINNER -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
     </div>
-    <!-- Spinner End -->
 
-
-    <!-- Topbar Start -->
-     <div class="container-fluid bg-light d-none d-lg-block">
-    <div class="row align-items-center top-bar">
-        
-        <!-- BRAND -->
-        <div class="col-lg-3 col-md-12 text-center text-lg-start">
-            <a href="" class="navbar-brand m-0 p-0">
-                <h1 class="text-primary m-0">Jost Plumbing Solutions Ltd.</h1>
-            </a>
-        </div>
-
-        <!-- CONTACT INFO -->
-        <div class="col-lg-9 col-md-12 text-end">
-
-            <!-- LOCATION -->
-            <div class="h-100 d-inline-flex align-items-center me-4">
-                <i class="fa fa-map-marker-alt text-primary me-2"></i>
-                <a href="https://www.bing.com/maps/search?mepi=57%7E%7EEmbedded%7ELargeMapLink&ty=18&v=2&sV=1&FORM=MIRE&q=Ngong+Road%2C+Karen+ward%2C+Nairobi+County&ppois=-1.30704166739578_36.7366508643626_Ngong+Road%2C+Karen+ward%2C+Nairobi+County_%7E&cp=-1.307042%7E36.736651&lvl=11&style=r" target="_blank" style="text-decoration: none;">
-                    <p class="m-0 text-dark">Nairobi, Kenya</p>
+    <!-- TOPBAR -->
+    <div class="container-fluid bg-light d-none d-lg-block">
+        <div class="row align-items-center top-bar">
+            <div class="col-lg-3 col-md-12 text-center text-lg-start">
+                <a href="index.html" class="navbar-brand m-0 p-0">
+                    <h1 class="text-primary m-0">Jost Plumbing Solutions Ltd.</h1>
                 </a>
             </div>
 
-            <!-- EMAIL -->
-            <div class="h-100 d-inline-flex align-items-center me-4">
-                <i class="far fa-envelope-open text-primary me-2"></i>
-                <a href="mailto:info@Jostplumbingsolutions.co.ke" style="text-decoration: none;">
-                    <p class="m-0 text-dark">jostplumbing@gmail.com</p>
-                </a>
-            </div>
+            <div class="col-lg-9 col-md-12 text-end">
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <i class="fa fa-map-marker-alt text-primary me-2"></i>
+                    <a href="https://www.bing.com/maps/search?mepi=57%7E%7EEmbedded%7ELargeMapLink&ty=18&v=2&sV=1&FORM=MIRE&q=Ngong+Road%2C+Karen+ward%2C+Nairobi+County&ppois=-1.30704166739578_36.7366508643626_Ngong+Road%2C+Karen+ward%2C+Nairobi+County_%7E&cp=-1.307042%7E36.736651&lvl=11&style=r" target="_blank" rel="noopener" style="text-decoration:none;">
+                        <p class="m-0 text-dark">Nairobi, Kenya</p>
+                    </a>
+                </div>
 
-            <!-- SOCIAL ICONS -->
-            <div class="h-100 d-inline-flex align-items-center">
-                <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.facebook.com/share/1Ngdq3bRXy/"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.tiktok.com/@jost.plumbing.sol?_r=1&_t=ZS-95Qm7ttLPnT"><i class="fab fa-tiktok"></i></a>
-                <a class="btn btn-sm-square bg-white text-primary me-0" href="https://www.instagram.com/jostplumbing2024?igsh=MTh2MTFvMjgyMjJncA=="><i class="fab fa-instagram"></i></a>
-            </div>
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <i class="far fa-envelope-open text-primary me-2"></i>
+                    <a href="mailto:info@Jostplumbingsolutions.co.ke" style="text-decoration:none;">
+                        <p class="m-0 text-dark">info@Jostplumbingsolutions.co.ke</p>
+                    </a>
+                </div>
 
+                <div class="h-100 d-inline-flex align-items-center">
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.facebook.com/share/1Ngdq3bRXy/"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.tiktok.com/@jost.plumbing.sol?_r=1&_t=ZS-95Qm7ttLPnT"><i class="fab fa-tiktok"></i></a>
+                    <a class="btn btn-sm-square bg-white text-primary me-0" href="https://www.instagram.com/jostplumbing2024?igsh=MTh2MTFvMjgyMjJncA=="><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-    <!-- Topbar End -->
 
-
-    <!-- Navbar Start -->
+    <!-- NAVBAR -->
     <div class="container-fluid nav-bar bg-light">
         <nav class="navbar navbar-expand-lg navbar-light bg-white p-3 py-lg-0 px-lg-4">
-            <a href="" class="navbar-brand d-flex align-items-center m-0 p-0 d-lg-none">
+            <a href="index.html" class="navbar-brand d-flex align-items-center m-0 p-0 d-lg-none">
                 <h1 class="text-primary m-0">Jost Plumbing Solutions Ltd.</h1>
             </a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav me-auto">
                     <a href="index.html" class="nav-item nav-link active">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
                     <a href="service.html" class="nav-item nav-link">Services</a>
+                    <a href="#gallery" class="nav-item nav-link">Gallery</a>
+
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu fade-up m-0">
@@ -108,33 +821,32 @@
                             <a href="404.html" class="dropdown-item">404 Page</a>
                         </div>
                     </div>
+
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
+
                 <div class="mt-4 mt-lg-0 me-lg-n4 py-3 px-4 bg-primary d-flex align-items-center">
-                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 45px; height: 45px;">
+                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width:45px;height:45px;">
                         <i class="fa fa-phone-alt text-primary"></i>
                     </div>
                     <div class="ms-3">
-    <p class="mb-1 text-white">Contact Us</p>
-    <h5 class="m-0 text-secondary">
-        <a href="tel:+254723901208" style="text-decoration:none; color:inherit;">
-            +254 723 901208
-        </a>
-    </h5>
-</div>
+                        <p class="mb-1 text-white">Contact Us</p>
+                        <h5 class="m-0 text-secondary">
+                            <a href="tel:+254723901208" style="text-decoration:none;color:inherit;">+254 723 901208</a>
+                        </h5>
+                    </div>
                 </div>
             </div>
         </nav>
     </div>
-    <!-- Navbar End -->
 
-
-    <!-- Carousel Start -->
-    <div class="container-fluid p-0 mb-5">
+    <!-- HERO CAROUSEL -->
+    <div class="container-fluid p-0 mb-0">
         <div class="owl-carousel header-carousel position-relative">
+
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/carousel-1.jpg" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .4);">
+                <img class="img-fluid" src="img/carousel-1.jpg" alt="Jost Plumbing Solutions">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background:rgba(0,0,0,.4);">
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-10 col-lg-8">
@@ -148,9 +860,10 @@
                     </div>
                 </div>
             </div>
+
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/carousel-2.jpg" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .4);">
+                <img class="img-fluid" src="img/carousel-2.jpg" alt="Professional plumbing services">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background:rgba(0,0,0,.4);">
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-10 col-lg-8">
@@ -164,28 +877,50 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
-    <!-- Carousel End -->
 
+    <!-- ORDER VIA WHATSAPP -->
+    <section class="whatsapp-order-section text-center">
+        <div class="container order-content">
+            <span class="order-label">Quick & Convenient Booking</span>
+            <h2 class="order-heading">Need a Plumbing Service?</h2>
+            <p class="order-description">
+                Get professional plumbing assistance with just one message.
+                Tell us what you need, and our team will be ready to assist you.
+            </p>
 
-    <!-- Service Start -->
-     <div class="container-fluid py-5 px-4 px-lg-0">
+            <a href="https://wa.me/254723901208?text=Hello%20Jost%20Plumbing%20Solutions%20Ltd.%2C%20I%20would%20like%20to%20make%20an%20inquiry%20about%20your%20plumbing%20services."
+               target="_blank" rel="noopener" class="whatsapp-order-btn">
+                <i class="fab fa-whatsapp"></i>
+                Order via WhatsApp
+            </a>
+
+            <span class="order-note">Fast response • Easy booking • Professional service</span>
+        </div>
+    </section>
+
+    <!-- FIRST SERVICES CAROUSEL -->
+    <div class="container-fluid py-5 px-4 px-lg-0">
         <div class="row g-0">
             <div class="col-lg-3 d-none d-lg-flex">
                 <div class="d-flex align-items-center justify-content-center bg-primary w-100 h-100">
-                    <h1 class="display-3 text-white m-0" style="transform: rotate(-90deg);">8 Years Experience</h1>
+                    <h1 class="display-3 text-white m-0" style="transform:rotate(-90deg);">8 Years Experience</h1>
                 </div>
             </div>
+
             <div class="col-md-12 col-lg-9">
                 <div class="ms-lg-5 ps-lg-5">
                     <div class="text-center text-lg-start wow fadeInUp" data-wow-delay="0.1s">
                         <h6 class="text-secondary text-uppercase">Our Services</h6>
                         <h1 class="mb-5">Explore Our Services</h1>
                     </div>
+
                     <div class="owl-carousel service-carousel position-relative wow fadeInUp" data-wow-delay="0.1s">
+
                         <div class="bg-light p-4">
-                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width: 75px; height: 75px;">
+                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width:75px;height:75px;">
                                 <i class="fa fa-wrench fa-2x text-primary"></i>
                             </div>
                             <h4 class="mb-3">Plumbing Repairs</h4>
@@ -195,8 +930,9 @@
                             <p class="text-primary fw-medium"><i class="fa fa-check text-success me-2"></i>Support 24/7</p>
                             <a href="service.html" class="btn bg-white text-primary w-100 mt-2">Read More<i class="fa fa-arrow-right text-secondary ms-2"></i></a>
                         </div>
+
                         <div class="bg-light p-4">
-                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width: 75px; height: 75px;">
+                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width:75px;height:75px;">
                                 <i class="fa fa-tools fa-2x text-primary"></i>
                             </div>
                             <h4 class="mb-3">Installations</h4>
@@ -206,8 +942,9 @@
                             <p class="text-primary fw-medium"><i class="fa fa-check text-success me-2"></i>Support 24/7</p>
                             <a href="service.html" class="btn bg-white text-primary w-100 mt-2">Read More<i class="fa fa-arrow-right text-secondary ms-2"></i></a>
                         </div>
+
                         <div class="bg-light p-4">
-                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width: 75px; height: 75px;">
+                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width:75px;height:75px;">
                                 <i class="fa fa-tools fa-2x text-primary"></i>
                             </div>
                             <h4 class="mb-3">Emergency Plumbing Services</h4>
@@ -217,8 +954,9 @@
                             <p class="text-primary fw-medium"><i class="fa fa-check text-success me-2"></i>Support 24/7</p>
                             <a href="service.html" class="btn bg-white text-primary w-100 mt-2">Read More<i class="fa fa-arrow-right text-secondary ms-2"></i></a>
                         </div>
+
                         <div class="bg-light p-4">
-                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width: 75px; height: 75px;">
+                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width:75px;height:75px;">
                                 <i class="fa fa-bolt fa-2x text-primary"></i>
                             </div>
                             <h4 class="mb-3">Drainage & Blockage Solutions</h4>
@@ -228,8 +966,9 @@
                             <p class="text-primary fw-medium"><i class="fa fa-check text-success me-2"></i>Support 24/7</p>
                             <a href="service.html" class="btn bg-white text-primary w-100 mt-2">Read More<i class="fa fa-arrow-right text-secondary ms-2"></i></a>
                         </div>
+
                         <div class="bg-light p-4">
-                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width: 75px; height: 75px;">
+                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width:75px;height:75px;">
                                 <i class="fa fa-water fa-2x text-primary"></i>
                             </div>
                             <h4 class="mb-3">Water Systems & Maintenance</h4>
@@ -239,448 +978,431 @@
                             <p class="text-primary fw-medium"><i class="fa fa-check text-success me-2"></i>Support 24/7</p>
                             <a href="service.html" class="btn bg-white text-primary w-100 mt-2">Read More<i class="fa fa-arrow-right text-secondary ms-2"></i></a>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Service End -->
 
+    <!-- ABOUT -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
 
-    <!-- About Start -->
-     <div class="container-xxl py-5">
-    <div class="container">
-        <div class="row g-5">
-            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="text-secondary text-uppercase">About Us</h6>
-                <h1 class="mb-4">Trusted Plumbing Experts You Can Rely On</h1>
-                <p class="mb-4">
-                    Your trusted partner for reliable, affordable, and professional plumbing solutions you can count on every day. We don’t just fix, we transform.
-                </p>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="text-secondary text-uppercase">About Us</h6>
+                    <h1 class="mb-4">Trusted Plumbing Experts You Can Rely On</h1>
+                    <p class="mb-4">Your trusted partner for reliable, affordable, and professional plumbing solutions you can count on every day. We don’t just fix, we transform.</p>
 
-                <p class="fw-medium text-primary"><i class="fa fa-check text-success me-3"></i>Residential & commercial plumbing</p>
-                <p class="fw-medium text-primary"><i class="fa fa-check text-success me-3"></i>Quality services at affordable prices</p>
-                <p class="fw-medium text-primary"><i class="fa fa-check text-success me-3"></i>Immediate 24/7 emergency services</p>
+                    <p class="fw-medium text-primary"><i class="fa fa-check text-success me-3"></i>Residential & commercial plumbing</p>
+                    <p class="fw-medium text-primary"><i class="fa fa-check text-success me-3"></i>Quality services at affordable prices</p>
+                    <p class="fw-medium text-primary"><i class="fa fa-check text-success me-3"></i>Immediate 24/7 emergency services</p>
 
-                <!-- 🔴 MORE ABOUT US BUTTON -->
-                <button class="btn btn-danger mt-3" onclick="openModal()">More About Us</button>
-
-                <!-- 📞 CONTACT BOX -->
-                <div class="bg-primary d-flex align-items-center p-4 mt-5">
-                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
-                        <i class="fa fa-phone-alt fa-2x text-primary"></i>
-                    </div>
-
-                    <div class="ms-3">
-                        <p class="mb-1 text-white">Contact Us</p>
-
-                        <!-- FIRST NUMBER -->
-                        <h5 class="m-0 text-secondary">
-                            <a href="tel:0723901208" style="text-decoration:none; color:inherit;">
-                                0723 901208
-                            </a>
-                        </h5>
-
-                        <!-- SECOND NUMBER -->
-                        <h5 class="m-0 text-secondary mt-1">
-                            <a href="tel:0724519738" style="text-decoration:none; color:inherit;">
-                                0724 519738
-                            </a>
-                        </h5>
+                    <div class="bg-primary d-flex align-items-center p-4 mt-5">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width:60px;height:60px;">
+                            <i class="fa fa-phone-alt fa-2x text-primary"></i>
+                        </div>
+                        <div class="ms-3">
+                            <p class="mb-1 text-white">Contact Us</p>
+                            <h5 class="m-0 text-secondary">
+                                <a href="tel:+254723901208" style="text-decoration:none;color:inherit;">+254 723 901208</a>
+                            </h5>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-lg-6 pt-4" style="min-height: 500px;">
-                <div class="position-relative h-100 wow fadeInUp" data-wow-delay="0.5s">
-                    <img class="position-absolute img-fluid w-100 h-100" src="img/about-1.jpg" style="object-fit: cover; padding: 0 0 50px 100px;" alt="">
-                    <img class="position-absolute start-0 bottom-0 img-fluid bg-white pt-2 pe-2 w-50 h-50" src="img/about-2.jpg" style="object-fit: cover;" alt="">
+                <div class="col-lg-6 pt-4" style="min-height:500px;">
+                    <div class="position-relative h-100 wow fadeInUp" data-wow-delay="0.5s">
+                        <img class="position-absolute img-fluid w-100 h-100" src="img/about-1.jpg" style="object-fit:cover;padding:0 0 50px 100px;" alt="Plumbing work">
+                        <img class="position-absolute start-0 bottom-0 img-fluid bg-white pt-2 pe-2 w-50 h-50" src="img/about-2.jpg" style="object-fit:cover;" alt="Plumbing services">
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
-</div>
 
-<!-- 🔥 POPUP MODAL -->
-<div id="aboutModal" class="custom-modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <h2>About Jost Services</h2>
-        <p>
-            Jost Services is committed to delivering top-quality plumbing solutions with professionalism and integrity. 
-            With years of experience, we handle everything from minor repairs to major installations for both residential 
-            and commercial clients.
-        </p>
-        <p>
-            Our mission is to provide reliable, fast, and affordable services while maintaining the highest standards. 
-            We pride ourselves on customer satisfaction, 24/7 emergency response, and skilled workmanship you can trust.
-        </p>
-        <button class="btn btn-danger mt-3" onclick="closeModal()">Close</button>
-    </div>
-</div>
-
-<!-- 🎨 STYLES -->
-<style>
-.custom-modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    animation: fadeIn 0.3s ease;
-}
-
-.modal-content {
-    background: #fff;
-    margin: 10% auto;
-    padding: 30px;
-    width: 90%;
-    max-width: 500px;
-    border-radius: 10px;
-    animation: slideDown 0.4s ease;
-    position: relative;
-    text-align: center;
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 25px;
-    cursor: pointer;
-}
-
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-@keyframes slideDown {
-    from {transform: translateY(-50px); opacity: 0;}
-    to {transform: translateY(0); opacity: 1;}
-}
-</style>
-
-<!-- ⚙️ SCRIPT -->
-<script>
-function openModal() {
-    document.getElementById("aboutModal").style.display = "block";
-}
-
-function closeModal() {
-    document.getElementById("aboutModal").style.display = "none";
-}
-
-// Close when clicking outside
-window.onclick = function(event) {
-    let modal = document.getElementById("aboutModal");
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
-    <!-- About End -->
-
-
-    <!-- Fact Start -->
+    <!-- FACTS -->
     <div class="container-fluid fact bg-dark my-5 py-5">
         <div class="container">
             <div class="row g-4">
+
                 <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
                     <i class="fa fa-check fa-2x text-white mb-3"></i>
                     <h2 class="text-white mb-2" data-toggle="counter-up">8</h2>
                     <p class="text-white mb-0">Years Experience</p>
                 </div>
+
                 <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
                     <i class="fa fa-users-cog fa-2x text-white mb-3"></i>
                     <h2 class="text-white mb-2" data-toggle="counter-up">10</h2>
                     <p class="text-white mb-0">Expert Technicians</p>
                 </div>
+
                 <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
                     <i class="fa fa-users fa-2x text-white mb-3"></i>
                     <h2 class="text-white mb-2" data-toggle="counter-up">1005</h2>
                     <p class="text-white mb-0">Satisfied Clients</p>
                 </div>
+
                 <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
                     <i class="fa fa-wrench fa-2x text-white mb-3"></i>
                     <h2 class="text-white mb-2" data-toggle="counter-up">1521</h2>
-                    <p class="text-white mb-0">Compleate Projects</p>
+                    <p class="text-white mb-0">Complete Projects</p>
                 </div>
+
             </div>
         </div>
     </div>
-    <!-- Fact End -->
 
+    <!-- FULL-SCREEN SERVICES SECTION -->
+    <section class="container-fluid full-services-section py-5">
+        <div class="container">
 
-    <!-- Service Start -->
-     <style>
-/* ====== PREMIUM MODERN SERVICE DESIGN ====== */
+            <div class="section-title">
+                <h1>Book Your Service in Minutes</h1>
+                <p>Fast, reliable and professional plumbing solutions at your fingertips</p>
+            </div>
 
-.section-title {
-    text-align: center;
-    margin-bottom: 50px;
-}
+            <div class="row g-4">
 
-.section-title h1 {
-    font-size: 34px;
-    font-weight: 800;
-    color: #0b0b0b;
-    margin-bottom: 12px;
-}
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <img src="img/service-1.jpg" alt="Plumbing Repairs">
+                        <div class="service-content">
+                            <h5>Plumbing Repairs</h5>
+                            <p>Leak detection, burst pipes, faulty taps, and toilet repairs handled quickly and professionally.</p>
+                            <button class="book-btn" onclick="bookService('Plumbing Repairs')">
+                                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-.section-title p {
-    color: #777;
-    font-size: 15px;
-}
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <img src="img/service-2.jpg" alt="Installations">
+                        <div class="service-content">
+                            <h5>Installations</h5>
+                            <p>Sinks, toilets, showers, piping systems and complete plumbing installations for homes and businesses.</p>
+                            <button class="book-btn" onclick="bookService('Installations')">
+                                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-/* Service Card */
-.service-card {
-    background: #ffffff;
-    border-radius: 22px;
-    overflow: hidden;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.06);
-    transition: all 0.4s ease;
-    border: 1px solid rgba(0,0,0,0.04);
-    position: relative;
-}
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <img src="img/service-3.jpg" alt="Emergency Plumbing">
+                        <div class="service-content">
+                            <h5>Emergency Plumbing</h5>
+                            <p>24/7 rapid response for burst pipes, flooding, and urgent plumbing emergencies.</p>
+                            <button class="book-btn" onclick="bookService('Emergency Plumbing')">
+                                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-.service-card:hover {
-    transform: translateY(-12px) scale(1.01);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.12);
-}
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <img src="img/service-4.jpg" alt="Drainage Solutions">
+                        <div class="service-content">
+                            <h5>Drainage Solutions</h5>
+                            <p>Blocked drains, sewer issues, and complete drainage cleaning and repair services.</p>
+                            <button class="book-btn" onclick="bookService('Drainage Solutions')">
+                                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-/* Image */
-.service-card img {
-    height: 240px;
-    width: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <img src="img/service-5.jpg" alt="Water Systems">
+                        <div class="service-content">
+                            <h5>Water Systems Maintenance</h5>
+                            <p>Water tanks, pumps, pipes, and full system servicing to ensure smooth performance.</p>
+                            <button class="book-btn" onclick="bookService('Water Systems Maintenance')">
+                                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-.service-card:hover img {
-    transform: scale(1.1);
-}
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <img src="img/service-6.jpg" alt="Electrical Installations">
+                        <div class="service-content">
+                            <h5>Electrical Installations & Repairs</h5>
+                            <p>Wiring, lighting, sockets, fault detection, and integrated maintenance services.</p>
+                            <button class="book-btn" onclick="bookService('Electrical Installations & Repairs')">
+                                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-/* Content */
-.service-content {
-    padding: 28px 24px;
-    text-align: center;
-}
-
-.service-content h5 {
-    font-size: 19px;
-    font-weight: 800;
-    margin-bottom: 12px;
-    color: #111;
-}
-
-.service-content p {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-/* WhatsApp Button (UPDATED) */
-.book-btn {
-    background: #000;
-    color: #fff;
-    border: none;
-    padding: 12px;
-    border-radius: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 100%;
-    letter-spacing: 0.3px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.book-btn:hover {
-    background: #222;
-    transform: translateY(-2px);
-}
-
-.book-btn:active {
-    transform: scale(0.97);
-}
-</style>
-
-<div class="container-xxl py-5">
-    <div class="container">
-
-        <!-- SECTION TITLE -->
-        <div class="section-title">
-            <h1>Book Your Service in Minutes</h1>
-            <p>Fast, reliable and professional plumbing solutions at your fingertips</p>
+            </div>
         </div>
+    </section>
 
-        <div class="row g-4">
+    <!-- GALLERY SECTION -->
+    <section class="gallery-section" id="gallery">
+        <div class="container-fluid px-3 px-lg-5">
 
-            <!-- Service 1 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card">
-                    <img src="img/111u.jpg" alt="Plumbing Repairs">
-                    <div class="service-content">
-                        <h5>Plumbing Repairs</h5>
-                        <p>Leak detection, burst pipes, faulty taps, and toilet repairs handled quickly and professionally.</p>
-                        <button class="book-btn" onclick="bookService('Plumbing Repairs')">
-                            <i class="fa-brands fa-whatsapp"></i>
-                            Order via WhatsApp
-                        </button>
-                    </div>
-                </div>
+            <div class="gallery-heading">
+                <div class="gallery-subtitle">Our Work In Action</div>
+                <h1>Our Project Gallery</h1>
+                <p>
+                    Explore our plumbing projects, installations, repairs and completed work.
+                    Browse our photos and videos to see the quality and professionalism behind our services.
+                </p>
             </div>
 
-            <!-- Service 2 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card">
-                    <img src="img/125l.jpg" alt="Installations">
-                    <div class="service-content">
-                        <h5>Installations</h5>
-                        <p>Sinks, toilets, showers, piping systems and complete plumbing installations for homes and businesses.</p>
-                        <button class="book-btn" onclick="bookService('Installations')">
-                            <i class="fa-brands fa-whatsapp"></i>
-                            Order via WhatsApp
-                        </button>
-                    </div>
-                </div>
+            <div class="gallery-filter">
+                <button type="button" class="active" data-filter="all">All Media</button>
+                <button type="button" data-filter="image">Photos <span id="photoCount">19</span></button>
+                <button type="button" data-filter="video">Videos <span id="videoCount">21</span></button>
             </div>
 
-            <!-- Service 3 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card">
-                    <img src="img/service-3.jpg" alt="Emergency Plumbing">
-                    <div class="service-content">
-                        <h5>Emergency Plumbing</h5>
-                        <p>24/7 rapid response for burst pipes, flooding, and urgent plumbing emergencies.</p>
-                        <button class="book-btn" onclick="bookService('Emergency Plumbing')">
-                            <i class="fa-brands fa-whatsapp"></i>
-                            Order via WhatsApp
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <div class="gallery-grid" id="galleryGrid">
 
-            <!-- Service 4 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card">
-                    <img src="img/service-4.jpg" alt="Drainage Solutions">
-                    <div class="service-content">
-                        <h5>Drainage Solutions</h5>
-                        <p>Blocked drains, sewer issues, and complete drainage cleaning and repair services.</p>
-                        <button class="book-btn" onclick="bookService('Drainage Solutions')">
-                            <i class="fa-brands fa-whatsapp"></i>
-                            Order via WhatsApp
-                        </button>
-                    </div>
-                </div>
-            </div>
+                <!-- IMAGES: image-01.jpg TO image-19.jpg -->
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/1.jpeg" aria-label="View gallery image 1">
+                    <img src="img/gallery/1.jpeg" alt="Jost Plumbing project photo 1" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 01</span>
+                </button>
 
-            <!-- Service 5 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card">
-                    <img src="img/service-5.jpg" alt="Water Systems">
-                    <div class="service-content">
-                        <h5>Water Systems Maintenance</h5>
-                        <p>Water tanks, pumps, pipes, and full system servicing to ensure smooth performance.</p>
-                        <button class="book-btn" onclick="bookService('Water Systems Maintenance')">
-                            <i class="fa-brands fa-whatsapp"></i>
-                            Order via WhatsApp
-                        </button>
-                    </div>
-                </div>
-            </div>
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/2.jpeg" aria-label="View gallery image 2">
+                    <img src="img/gallery/2.jpeg" alt="Jost Plumbing project photo 2" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 02</span>
+                </button>
 
-            <!-- Service 6 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card">
-                    <img src="img/service-6.jpg" alt="Electrical Installations">
-                    <div class="service-content">
-                        <h5>Electrical Installations & Repairs</h5>
-                        <p>Wiring, lighting, sockets, fault detection, and integrated maintenance services.</p>
-                        <button class="book-btn" onclick="bookService('Electrical Installations & Repairs')">
-                            <i class="fa-brands fa-whatsapp"></i>
-                            Order via WhatsApp
-                        </button>
-                    </div>
-                </div>
-            </div>
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/3.jpeg" aria-label="View gallery image 3">
+                    <img src="img/gallery/3.jpeg" alt="Jost Plumbing project photo 3" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 03</span>
+                </button>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card">
-                    <img src="img/SWI.png" alt="Electrical Installations">
-                    <div class="service-content">
-                        <h5>Solar Water Heater Installation</h5>
-                        <p>Ksh. 12,000</p>
-                        <button class="book-btn" onclick="bookService('Solar Water Heater Installation')">
-                            <i class="fa-brands fa-whatsapp"></i>
-                            Order via WhatsApp
-                        </button>
-                    </div>
-                </div>
-            </div>
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/4.jpeg" aria-label="View gallery image 4">
+                    <img src="img/gallery/4.jpeg" alt="Jost Plumbing project photo 4" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 04</span>
+                </button>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card">
-                    <img src="img/TSU.png" alt="Electrical Installations">
-                    <div class="service-content">
-                        <h5>Toilet, Sewer Unclogging</h5>
-                        <p>Ksh. 3,500</p>
-                        <button class="book-btn" onclick="bookService('Toilet, sewer unclogging')">
-                            <i class="fa-brands fa-whatsapp"></i>
-                            Order via WhatsApp
-                        </button>
-                    </div>
-                </div>
-            </div>
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/5.jpeg" aria-label="View gallery image 5">
+                    <img src="img/gallery/5.jpeg" alt="Jost Plumbing project photo 5" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 05</span>
+                </button>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card">
-                    <img src="img/AS.png" alt="Electrical Installations">
-                    <div class="service-content">
-                        <h5>Arabic Shower</h5>
-                        <p>Ksh. 2,000</p>
-                        <button class="book-btn" onclick="bookService('Arabic Shower')">
-                            <i class="fa-brands fa-whatsapp"></i>
-                            Order via WhatsApp
-                        </button>
-                    </div>
-                </div>
-            </div>
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/6.jpeg" aria-label="View gallery image 6">
+                    <img src="img/gallery/6.jpeg" alt="Jost Plumbing project photo 6" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 06</span>
+                </button>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card">
-                    <img src="img/S.png" alt="Electrical Installations">
-                    <div class="service-content">
-                        <h5>Shower</h5>
-                        <p>Ksh. 25,000</p>
-                        <button class="book-btn" onclick="bookService('Shower')">
-                            <i class="fa-brands fa-whatsapp"></i>
-                            Order via WhatsApp
-                        </button>
-                    </div>
-                </div>
-            </div>
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/7.jpeg" aria-label="View gallery image 7">
+                    <img src="img/gallery/7.jpeg" alt="Jost Plumbing project photo 7" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 07</span>
+                </button>
 
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/8.jpeg" aria-label="View gallery image 8">
+                    <img src="img/gallery/8.jpeg" alt="Jost Plumbing project photo 8" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 08</span>
+                </button>
+
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/9.jpeg" aria-label="View gallery image 9">
+                    <img src="img/gallery/9.jpeg" alt="Jost Plumbing project photo 9" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 09</span>
+                </button>
+
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/10.jpeg" aria-label="View gallery image 10">
+                    <img src="img/gallery/10.jpeg" alt="Jost Plumbing project photo 10" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 10</span>
+                </button>
+
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/11.jpeg" aria-label="View gallery image 11">
+                    <img src="img/gallery/11.jpeg" alt="Jost Plumbing project photo 11" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 11</span>
+                </button>
+
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/12.jpeg" aria-label="View gallery image 12">
+                    <img src="img/gallery/12.jpeg" alt="Jost Plumbing project photo 12" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 12</span>
+                </button>
+
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/13.jpeg" aria-label="View gallery image 13">
+                    <img src="img/gallery/13.jpeg" alt="Jost Plumbing project photo 13" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 13</span>
+                </button>
+
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/14.jpeg" aria-label="View gallery image 14">
+                    <img src="img/gallery/14.jpeg" alt="Jost Plumbing project photo 14" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 14</span>
+                </button>
+
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/15.jpeg" aria-label="View gallery image 15">
+                    <img src="img/gallery/15.jpeg" alt="Jost Plumbing project photo 15" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 15</span>
+                </button>
+
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/16.jpeg" aria-label="View gallery image 16">
+                    <img src="img/gallery/16.jpeg" alt="Jost Plumbing project photo 16" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 16</span>
+                </button>
+
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/17.jpeg" aria-label="View gallery image 17">
+                    <img src="img/gallery/17.jpeg" alt="Jost Plumbing project photo 17" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 17</span>
+                </button>
+
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/18.jpeg" aria-label="View gallery image 18">
+                    <img src="img/gallery/18.jpeg" alt="Jost Plumbing project photo 18" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 18</span>
+                </button>
+
+                <button class="gallery-item" type="button" data-type="image" data-src="img/gallery/19.jpeg" aria-label="View gallery image 19">
+                    <img src="img/gallery/19.jpeg" alt="Jost Plumbing project photo 19" loading="lazy">
+                    <span class="gallery-item-label">Project Photo 19</span>
+                </button>
+
+                <!-- VIDEOS: v1.mp4 AND video-02.mp4 TO video-21.mp4 -->
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v1.mp4" aria-label="Play gallery video 1">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 01</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 01</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v2.mp4" aria-label="Play gallery video 2">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 02</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 02</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v3.mp4" aria-label="Play gallery video 3">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 03</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 03</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v4.mp4" aria-label="Play gallery video 4">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 04</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 04</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v5.mp4" aria-label="Play gallery video 5">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 05</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 05</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v6.mp4" aria-label="Play gallery video 6">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 06</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 06</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v7.mp4" aria-label="Play gallery video 7">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 07</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 07</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v8.mp4" aria-label="Play gallery video 8">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 08</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 08</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v9.mp4" aria-label="Play gallery video 9">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 09</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 09</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v10.mp4" aria-label="Play gallery video 10">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 10</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 10</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v11.mp4" aria-label="Play gallery video 11">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 11</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 11</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v12.mp4" aria-label="Play gallery video 12">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 12</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 12</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v13.mp4" aria-label="Play gallery video 13">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 13</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 13</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v14.mp4" aria-label="Play gallery video 14">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 14</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 14</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v15.mp4" aria-label="Play gallery video 15">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 15</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 15</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v16.mp4" aria-label="Play gallery video 16">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 16</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 16</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v17.mp4" aria-label="Play gallery video 17">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 17</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 17</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v18.mp4" aria-label="Play gallery video 18">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 18</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 18</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v19.mp4" aria-label="Play gallery video 19">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 19</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 19</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v20.mp4" aria-label="Play gallery video 20">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 20</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 20</span>
+                </button>
+
+                <button class="gallery-item video-item" type="button" data-type="video" data-src="img/gallery/v21.mp4" aria-label="Play gallery video 21">
+                    <span class="gallery-video-placeholder"><span class="video-play-icon"><i class="fas fa-play"></i></span><span>Watch Video 21</span><small>Click to play</small></span>
+                    <span class="gallery-item-label">Project Video 21</span>
+                </button>
+
+            </div>
         </div>
+    </section>
+
+    <!-- FULL-SCREEN GALLERY VIEWER -->
+    <div class="gallery-viewer" id="galleryViewer" aria-modal="true" role="dialog" aria-label="Gallery media viewer">
+        <div class="gallery-viewer-hint">JOST PLUMBING SOLUTIONS LTD.</div>
+
+        <button type="button" class="gallery-viewer-close" id="galleryClose" aria-label="Close gallery">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <button type="button" class="gallery-viewer-prev" id="galleryPrev" aria-label="Previous media">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <div class="gallery-viewer-content" id="galleryViewerContent"></div>
+
+        <button type="button" class="gallery-viewer-next" id="galleryNext" aria-label="Next media">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <div class="gallery-viewer-counter" id="galleryCounter">1 / 40</div>
     </div>
-</div>
 
-<!-- SCRIPT -->
-<script>
-function bookService(serviceName) {
-    var phone = "254723901208";
+    <!-- SERVICE ORDER SCRIPT -->
+    <script>
+        function bookService(serviceName) {
+            var phone = "254723901208";
 
-    var message =
-`Hello Jost Plumbing Solutions Ltd,
+            var message = `Hello Jost Plumbing Solutions Ltd.,
 
 I would like to book a service:
 
@@ -690,289 +1412,448 @@ Preferred Date:
 
 Kindly assist me. Thank you.`;
 
-    var whatsappURL = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+            var whatsappURL = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+            window.open(whatsappURL, "_blank", "noopener");
+        }
+    </script>
 
-    window.open(whatsappURL, "_blank");
-}
-</script>
+    <!-- GALLERY SCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
 
-<!-- FONT AWESOME -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- Service End -->
+            const galleryItems = Array.from(document.querySelectorAll(".gallery-item"));
+            const filterButtons = document.querySelectorAll(".gallery-filter button");
 
+            const viewer = document.getElementById("galleryViewer");
+            const viewerContent = document.getElementById("galleryViewerContent");
+            const closeButton = document.getElementById("galleryClose");
+            const previousButton = document.getElementById("galleryPrev");
+            const nextButton = document.getElementById("galleryNext");
+            const counter = document.getElementById("galleryCounter");
 
-    <!-- Booking Start -->
-     <div class="container-fluid my-5 px-0">
+            let currentIndex = 0;
+            let visibleItems = galleryItems.slice();
 
-    <!-- HERO -->
-    <div class="video wow fadeInUp" data-wow-delay="0.1s">
+            /* LOAD ACTUAL VIDEO THUMBNAILS */
+            galleryItems.forEach(function (item) {
 
-        <button type="button" class="btn-play" data-bs-toggle="modal" data-bs-target="#videoModal">
-            <span></span>
-        </button>
+                if (item.getAttribute("data-type") !== "video") {
+                    return;
+                }
 
-        <div class="modal fade" id="videoModal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content rounded-0">
+                const source = item.getAttribute("data-src");
+                const placeholder = item.querySelector(".gallery-video-placeholder");
 
-                    <div class="modal-header">
-                        <h5 class="modal-title">Jost Plumbing Solutions Ltd.</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
+                const thumbnail = document.createElement("video");
 
-                    <div class="modal-body">
-                        <div class="ratio ratio-16x9">
-                            <video id="videoPlayer" class="w-100" controls>
-                                <source src="img/plumbing.mp4" type="video/mp4">
-                            </video>
+                thumbnail.className = "gallery-video-thumb";
+                thumbnail.src = source;
+                thumbnail.muted = true;
+                thumbnail.defaultMuted = true;
+                thumbnail.playsInline = true;
+                thumbnail.preload = "auto";
+
+                thumbnail.setAttribute("muted", "");
+                thumbnail.setAttribute("playsinline", "");
+                thumbnail.setAttribute("aria-hidden", "true");
+
+                thumbnail.addEventListener("loadeddata", function () {
+
+                    if (thumbnail.duration && thumbnail.duration > 0.2) {
+                        thumbnail.currentTime = 0.1;
+                    } else {
+                        if (placeholder) {
+                            placeholder.classList.add("thumbnail-loaded");
+                        }
+                    }
+
+                });
+
+                thumbnail.addEventListener("seeked", function () {
+
+                    if (placeholder) {
+                        placeholder.classList.add("thumbnail-loaded");
+                    }
+
+                });
+
+                thumbnail.addEventListener("error", function () {
+                    if (placeholder) {
+                        placeholder.classList.remove("thumbnail-loaded");
+                    }
+                });
+
+                item.insertBefore(thumbnail, item.firstChild);
+
+            });
+
+            /* FILTER GALLERY */
+            filterButtons.forEach(function (button) {
+                button.addEventListener("click", function () {
+
+                    filterButtons.forEach(function (btn) {
+                        btn.classList.remove("active");
+                    });
+
+                    this.classList.add("active");
+
+                    const filter = this.getAttribute("data-filter");
+
+                    galleryItems.forEach(function (item) {
+                        const type = item.getAttribute("data-type");
+
+                        if (filter === "all" || filter === type) {
+                            item.hidden = false;
+                        } else {
+                            item.hidden = true;
+                        }
+                    });
+                });
+            });
+
+            /* UPDATE VIEWER COUNTER */
+            function updateCounter() {
+                counter.textContent = (currentIndex + 1) + " / " + visibleItems.length;
+            }
+
+            /* OPEN SELECTED MEDIA */
+            function openGallery(index) {
+                visibleItems = galleryItems.filter(function (item) {
+                    return !item.hidden;
+                });
+
+                if (!visibleItems.length) return;
+
+                currentIndex = visibleItems.indexOf(galleryItems[index]);
+
+                if (currentIndex < 0) currentIndex = 0;
+
+                showMedia();
+                viewer.classList.add("show");
+                document.body.style.overflow = "hidden";
+            }
+
+            /* DISPLAY IMAGE OR VIDEO */
+            function showMedia() {
+                const item = visibleItems[currentIndex];
+
+                if (!item) return;
+
+                const type = item.getAttribute("data-type");
+                const source = item.getAttribute("data-src");
+
+                viewerContent.innerHTML = "";
+
+                if (type === "image") {
+                    const image = document.createElement("img");
+                    image.src = source;
+                    image.alt = "Jost Plumbing Solutions project";
+                    image.draggable = false;
+
+                    image.onerror = function () {
+                        viewerContent.innerHTML = '<p style="color:#fff;text-align:center;">Image could not be loaded. Please check the image file path.</p>';
+                    };
+
+                    viewerContent.appendChild(image);
+                } else {
+                    const video = document.createElement("video");
+                    video.src = source;
+                    video.controls = true;
+                    video.autoplay = false;
+                    video.preload = "metadata";
+                    video.playsInline = true;
+                    video.setAttribute("controlsList", "nodownload");
+                    viewerContent.appendChild(video);
+                }
+
+                updateCounter();
+            }
+
+            /* NEXT MEDIA */
+            function nextMedia() {
+                if (!visibleItems.length) return;
+
+                currentIndex = (currentIndex + 1) % visibleItems.length;
+                showMedia();
+            }
+
+            /* PREVIOUS MEDIA */
+            function previousMedia() {
+                if (!visibleItems.length) return;
+
+                currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
+                showMedia();
+            }
+
+            /* CLOSE VIEWER */
+            function closeGallery() {
+                viewer.classList.remove("show");
+
+                const video = viewerContent.querySelector("video");
+
+                if (video) {
+                    video.pause();
+                    video.removeAttribute("src");
+                    video.load();
+                }
+
+                viewerContent.innerHTML = "";
+                document.body.style.overflow = "";
+            }
+
+            /* CLICK ON GALLERY ITEMS */
+            galleryItems.forEach(function (item, index) {
+                item.addEventListener("click", function () {
+                    openGallery(index);
+                });
+            });
+
+            closeButton.addEventListener("click", closeGallery);
+            nextButton.addEventListener("click", nextMedia);
+            previousButton.addEventListener("click", previousMedia);
+
+            /* CLOSE WHEN CLICKING OUTSIDE MEDIA */
+            viewer.addEventListener("click", function (event) {
+                if (event.target === viewer) {
+                    closeGallery();
+                }
+            });
+
+            /* KEYBOARD CONTROLS */
+            document.addEventListener("keydown", function (event) {
+                if (!viewer.classList.contains("show")) return;
+
+                if (event.key === "Escape") {
+                    closeGallery();
+                }
+
+                if (event.key === "ArrowRight") {
+                    nextMedia();
+                }
+
+                if (event.key === "ArrowLeft") {
+                    previousMedia();
+                }
+            });
+
+        });
+    </script>
+
+    <!-- BOOKING / VIDEO SECTION -->
+    <div class="container-fluid my-5 px-0">
+        <div class="video wow fadeInUp" data-wow-delay="0.1s">
+
+            <button type="button" class="btn-play" data-bs-toggle="modal" data-bs-target="#videoModal">
+                <span></span>
+            </button>
+
+            <div class="modal fade" id="videoModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content rounded-0">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title">Jost Plumbing Solutions Ltd.</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
+
+                        <div class="modal-body">
+                            <div class="ratio ratio-16x9">
+                                <video id="videoPlayer" class="w-100" controls>
+                                    <source src="img/plumbing.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="text-white mb-4">Jost Plumbing Solutions Ltd.</h1>
+            <h3 class="text-white mb-0">24 Hours 7 Days a Week</h3>
+        </div>
+
+        <div class="container position-relative wow fadeInUp" style="margin-top:-6rem;">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+
+                    <div class="bg-light text-center p-5 rounded shadow">
+                        <h1 class="mb-2">Pay For A Service</h1>
+
+                        <div style="margin:12px 0 20px;padding:14px;border-radius:12px;background:linear-gradient(270deg,#00a651,#00c853,#00ff88);background-size:600% 600%;color:white;font-weight:800;text-align:center;animation:orderBackground 4s ease infinite,mpesaPulse 1.8s infinite;">
+                            <div>PAYBILL 222111</div>
+                            <div>ACCOUNT 2624187</div>
+                        </div>
+
+                        <form onsubmit="startPayment(event)">
+                            <div class="row g-3">
+
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" id="name" class="form-control border-0" placeholder="Your Name" style="height:55px;" required>
+                                </div>
+
+                                <div class="col-12 col-sm-6">
+                                    <input type="email" id="email" class="form-control border-0" placeholder="Your Email" style="height:55px;" required>
+                                </div>
+
+                                <div class="col-12 col-sm-6">
+                                    <select id="service" class="form-select border-0" style="height:55px;" onchange="showService()" required>
+                                        <option value="">Select A Service</option>
+                                        <option value="Plumbing Repairs">Plumbing Repairs</option>
+                                        <option value="Installations">Installations</option>
+                                        <option value="Emergency Services">Emergency Services</option>
+                                        <option value="Drainage Solutions">Drainage Solutions</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" id="serviceDate" class="form-control border-0" placeholder="Service Date" style="height:55px;" required>
+                                </div>
+
+                                <div class="col-12">
+                                    <textarea id="specialMessage" class="form-control border-0" placeholder="Special Message"></textarea>
+                                </div>
+
+                                <div class="col-12">
+                                    <p id="serviceText" class="fw-bold text-primary"></p>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary w-100 py-3">Pay Now</button>
+                                </div>
+
+                            </div>
+                        </form>
                     </div>
 
                 </div>
             </div>
         </div>
-
-        <h1 class="text-white mb-4">Jost Plumbing Solutions Ltd.</h1>
-        <h3 class="text-white mb-0">24 Hours 7 Days a Week</h3>
     </div>
 
-    <!-- FORM -->
-    <div class="container position-relative wow fadeInUp" style="margin-top: -6rem;">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
+    <!-- PAYMENT MODAL -->
+    <div id="paymentModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;z-index:9999;">
 
-                <div class="bg-light text-center p-5 rounded shadow">
+        <div style="background:#fff;width:90%;max-width:420px;padding:20px;border-radius:15px;text-align:center;max-height:90vh;overflow-y:auto;">
+            <h3>Complete Payment</h3>
 
-                    <h1 class="mb-2">Pay For A Service</h1>
+            <div class="mpesa-card">
+                <div class="mpesa-header">LIPA NA M-PESA</div>
+                <div class="mpesa-body">
+                    <div class="label">PAYBILL NUMBER</div>
+                    <div class="value">222111</div>
 
-                    <!-- PAYBILL HEADER -->
-                    <div style="
-                        margin: 12px 0 20px;
-                        padding: 14px;
-                        border-radius: 12px;
-                        background: linear-gradient(270deg, #00a651, #00c853, #00ff88);
-                        background-size: 600% 600%;
-                        color: white;
-                        font-weight: 800;
-                        text-align: center;
-                        animation: glowMove 4s ease infinite, softPulse 1.8s infinite;
-                    ">
-                        <div>PAYBILL 222111</div>
-                        <div>ACCOUNT 2624187</div>
-                    </div>
+                    <div class="label">ACCOUNT NUMBER</div>
+                    <div class="value">2624187</div>
 
-                    <form onsubmit="startPayment(event)">
-                        <div class="row g-3">
-
-                            <div class="col-12 col-sm-6">
-                                <input type="text" id="name" class="form-control border-0"
-                                    placeholder="Your Name" style="height:55px;" required>
-                            </div>
-
-                            <div class="col-12 col-sm-6">
-                                <input type="email" id="email" class="form-control border-0"
-                                    placeholder="Your Email" style="height:55px;" required>
-                            </div>
-
-                            <div class="col-12 col-sm-6">
-                                <select id="service" class="form-select border-0"
-                                    style="height:55px;" onchange="showService()" required>
-                                    <option value="">Select A Service</option>
-                                    <option value="Plumbing Repairs">Plumbing Repairs</option>
-                                    <option value="Installations">Installations</option>
-                                    <option value="Emergency Services">Emergency Services</option>
-                                    <option value="Drainage Solutions">Drainage Solutions</option>
-                                </select>
-                            </div>
-
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control border-0"
-                                    placeholder="Service Date" style="height:55px;" required>
-                            </div>
-
-                            <div class="col-12">
-                                <textarea class="form-control border-0"
-                                    placeholder="Special Message"></textarea>
-                            </div>
-
-                            <div class="col-12">
-                                <p id="serviceText" class="fw-bold text-primary"></p>
-                            </div>
-
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary w-100 py-3">
-                                    Pay Now
-                                </button>
-                            </div>
-
-                        </div>
-                    </form>
-
+                    <div class="label">SERVICE</div>
+                    <div class="value" id="modalService">SERVICE</div>
                 </div>
-
             </div>
+
+            <p style="text-align:left;font-size:14px;">
+                1. Go to M-Pesa<br>
+                2. Lipa na M-Pesa<br>
+                3. Paybill 222111<br>
+                4. Enter account 2624187<br>
+                5. Enter amount<br>
+                6. Confirm with PIN
+            </p>
+
+            <a id="whatsappBtn" target="_blank" rel="noopener" style="display:block;background:#25D366;color:#fff;padding:12px;border-radius:8px;text-decoration:none;margin-top:10px;font-weight:bold;">
+                I Have Paid (Notify Us)
+            </a>
+
+            <button type="button" onclick="closePayment()" style="margin-top:10px;width:100%;padding:10px;border:none;background:#ccc;border-radius:8px;">
+                Close
+            </button>
         </div>
     </div>
-</div>
 
-<!-- PAYMENT MODAL -->
-<div id="paymentModal" style="
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.6);
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
-">
+    <!-- PAYMENT SCRIPT -->
+    <script>
+        function showService() {
+            var service = document.getElementById("service").value;
+            document.getElementById("serviceText").innerText =
+                service ? "Selected: " + service : "";
+        }
 
-    <div style="
-        background:#fff;
-        width:90%;
-        max-width:420px;
-        padding:20px;
-        border-radius:15px;
-        text-align:center;
-    ">
+        function startPayment(e) {
+            e.preventDefault();
 
-        <h3>Complete Payment</h3>
+            var service = document.getElementById("service").value;
 
-        <!-- MPESA CARD -->
-        <div class="mpesa-card">
-            <div class="mpesa-header">LIPA NA M-PESA</div>
+            if (!service) {
+                alert("Please select a service first");
+                return;
+            }
 
-            <div class="mpesa-body">
-                <div class="label">PAYBILL NUMBER</div>
-                <div class="value">222111</div>
+            var customerName = document.getElementById("name").value;
+            var customerEmail = document.getElementById("email").value;
+            var serviceDate = document.getElementById("serviceDate").value;
+            var specialMessage = document.getElementById("specialMessage").value;
 
-                <div class="label">ACCOUNT NUMBER</div>
-                <div class="value">2624187</div>
+            document.getElementById("modalService").innerText = service;
 
-                <div class="label">SERVICE</div>
-                <div class="value" id="modalService">SERVICE</div>
-            </div>
-        </div>
+            var phone = "254723901208";
 
-        <p style="text-align:left; font-size:14px;">
-            1. Go to M-Pesa<br>
-            2. Lipa na M-Pesa<br>
-            3. Paybill 222111<br>
-            4. Enter account 2624187<br>
-            5. Enter amount<br>
-            6. Confirm with PIN
-        </p>
+            var msg = `Hello Jost Plumbing Solutions Ltd.,
 
-        <a id="whatsappBtn"
-           style="
-            display:block;
-            background:#25D366;
-            color:#fff;
-            padding:12px;
-            border-radius:8px;
-            text-decoration:none;
-            margin-top:10px;
-            font-weight:bold;
-           ">
-            I Have Paid (Notify Us)
-        </a>
+I have completed payment for my service.
 
-        <button onclick="closePayment()" style="
-            margin-top:10px;
-            width:100%;
-            padding:10px;
-            border:none;
-            background:#ccc;
-            border-radius:8px;
-        ">
-            Close
-        </button>
+Name: ${customerName}
+Email: ${customerEmail}
+Service: ${service}
+Service Date: ${serviceDate}
+Message: ${specialMessage}
 
-    </div>
-</div>
+Please confirm and proceed with the booking. Thank you.`;
 
-<!-- SCRIPT -->
-<script>
-function showService() {
-    let service = document.getElementById("service").value;
-    document.getElementById("serviceText").innerText =
-        service ? "Selected: " + service : "";
-}
+            document.getElementById("whatsappBtn").href =
+                "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
 
-function startPayment(e) {
-    e.preventDefault();
+            document.getElementById("paymentModal").style.display = "flex";
+        }
 
-    let service = document.getElementById("service").value;
+        function closePayment() {
+            document.getElementById("paymentModal").style.display = "none";
+        }
 
-    if (!service) {
-        alert("Please select a service first");
-        return;
-    }
+        document.getElementById("paymentModal").addEventListener("click", function(e) {
+            if (e.target === this) {
+                closePayment();
+            }
+        });
 
-    document.getElementById("modalService").innerText = service;
+        /* Stop the main video when its Bootstrap modal closes */
+        document.addEventListener("DOMContentLoaded", function () {
+            var videoModal = document.getElementById("videoModal");
+            var videoPlayer = document.getElementById("videoPlayer");
 
-    let phone = "254723901208";
-    let msg = "Hello, I have completed payment for my service. Please confirm and proceed with the booking. Thank you.";
+            if (videoModal && videoPlayer) {
+                videoModal.addEventListener("hidden.bs.modal", function () {
+                    videoPlayer.pause();
+                    videoPlayer.currentTime = 0;
+                });
+            }
+        });
+    </script>
 
-    document.getElementById("whatsappBtn").href =
-        "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
-
-    document.getElementById("paymentModal").style.display = "flex";
-}
-
-function closePayment() {
-    document.getElementById("paymentModal").style.display = "none";
-}
-</script>
-
-<!-- STYLES -->
-<style>
-.mpesa-card {
-    background: linear-gradient(135deg, #00a651, #00c853);
-    color: white;
-    padding: 18px;
-    border-radius: 12px;
-    margin: 15px 0;
-    animation: pulse 2s infinite;
-}
-
-.mpesa-header {
-    font-weight: 800;
-    margin-bottom: 10px;
-}
-
-.mpesa-body .label {
-    font-size: 12px;
-}
-
-.mpesa-body .value {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-@keyframes pulse {
-    0% { box-shadow: 0 0 10px rgba(0,255,100,0.4); }
-    50% { box-shadow: 0 0 25px rgba(0,255,100,0.8); }
-    100% { box-shadow: 0 0 10px rgba(0,255,100,0.4); }
-}
-</style>
-    <!-- Booking End -->
-
-    <!-- Testimonial Start -->
+    <!-- TESTIMONIALS -->
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
+
             <div class="text-center">
                 <h6 class="text-secondary text-uppercase">Testimonials</h6>
                 <h1 class="mb-5">What our clients say</h1>
             </div>
+
             <div class="owl-carousel testimonial-carousel position-relative wow fadeInUp" data-wow-delay="0.1s">
+
                 <div class="testimonial-item text-center">
                     <div class="testimonial-text bg-light text-center p-4 mb-4">
                         <p class="mb-0">“Jost Plumbing delivered excellent service, fast response, and reliable repairs for our company facilities.”</p>
                     </div>
-                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="img/testimonial-1.jpg" style="width: 80px; height: 80px;">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="img/testimonial-1.jpg" style="width:80px;height:80px;" alt="Client">
                     <div class="mb-2">
                         <small class="fa fa-star text-secondary"></small>
                         <small class="fa fa-star text-secondary"></small>
@@ -983,11 +1864,12 @@ function closePayment() {
                     <h5 class="mb-1">Antony Githinji</h5>
                     <p class="m-0">Oasis Enterprises</p>
                 </div>
+
                 <div class="testimonial-item text-center">
                     <div class="testimonial-text bg-light text-center p-4 mb-4">
                         <p class="mb-0">“Jost Plumbing is dependable, skilled, and efficient. They handled our commercial project beyond expectations.”</p>
                     </div>
-                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="img/testimonial-2.jpg" style="width: 80px; height: 80px;">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="img/testimonial-2.jpg" style="width:80px;height:80px;" alt="Client">
                     <div class="mb-2">
                         <small class="fa fa-star text-secondary"></small>
                         <small class="fa fa-star text-secondary"></small>
@@ -998,11 +1880,12 @@ function closePayment() {
                     <h5 class="mb-1">Nexus Business Centre</h5>
                     <p class="m-0">Chief</p>
                 </div>
+
                 <div class="testimonial-item text-center">
                     <div class="testimonial-text bg-light text-center p-4 mb-4">
                         <p class="mb-0">“Highly professional team, affordable pricing, and outstanding workmanship. We trust Jost Plumbing completely.”</p>
                     </div>
-                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="img/testimonial-3.jpg" style="width: 80px; height: 80px;">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="img/testimonial-3.jpg" style="width:80px;height:80px;" alt="Client">
                     <div class="mb-2">
                         <small class="fa fa-star text-secondary"></small>
                         <small class="fa fa-star text-secondary"></small>
@@ -1013,11 +1896,12 @@ function closePayment() {
                     <h5 class="mb-1">Legends Technologies Ltd.</h5>
                     <p class="m-0">Director</p>
                 </div>
+
                 <div class="testimonial-item text-center">
                     <div class="testimonial-text bg-light text-center p-4 mb-4">
                         <p class="mb-0">“Great customer service and quality plumbing solutions. Our office issues were fixed perfectly and quickly.”</p>
                     </div>
-                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="img/testimonial-4.jpg" style="width: 80px; height: 80px;">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="img/testimonial-4.jpg" style="width:80px;height:80px;" alt="Client">
                     <div class="mb-2">
                         <small class="fa fa-star text-secondary"></small>
                         <small class="fa fa-star text-secondary"></small>
@@ -1028,32 +1912,37 @@ function closePayment() {
                     <h5 class="mb-1">Primebuild Contractors Co.</h5>
                     <p class="m-0">Manager</p>
                 </div>
+
             </div>
         </div>
     </div>
-    <!-- Testimonial End -->
 
-
-    <!-- Footer Start -->
+    <!-- FOOTER -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
+
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Address</h4>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Ngong Road, Nairobi - Kenya</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+254 723 901208</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>jostplumbing@gmail.com</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a href="tel:+254723901208" class="text-light">+254 723 901208</a></p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i><a href="mailto:info@Jostplumbingsolutions.co.ke" class="text-light">info@Jostplumbingsolutions.co.ke</a></p>
+
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href="https://www.tiktok.com/@jost.plumbing.sol?_r=1&_t=ZS-95Qm7ttLPnT"><i class="fab fa-tiktok"></i></a>
                         <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/share/1Ngdq3bRXy/"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/jostplumbing2024?igsh=MTh2MTFvMjgyMjJncA=="><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/jostplumbing2024?igsh=MTh2MTFvMjJncA=="><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Opening Hours</h4>
-                    <h6 class="text-light">Everyday:</h6>
-                    <p class="mb-4">24 Hours Support</p>
+                    <h6 class="text-light">Monday - Saturday:</h6>
+                    <p class="mb-4">08:00 AM - 09:00 PM</p>
+                    <h6 class="text-light">Sunday:</h6>
+                    <p class="mb-0">Closed</p>
                 </div>
+
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Services</h4>
                     <a class="btn btn-link" href="service.html">Plumbing Repairs</a>
@@ -1062,61 +1951,62 @@ function closePayment() {
                     <a class="btn btn-link" href="service.html">Drainage & Blockage Solutions</a>
                     <a class="btn btn-link" href="service.html">Water Systems & Maintenance</a>
                 </div>
+
                 <div class="col-lg-3 col-md-6">
-    <h4 class="text-light mb-4">Send us an Email</h4>
-    <p>Reach out for inquiries, quotes, or support anytime.</p>
+                    <h4 class="text-light mb-4">Send us an Email</h4>
+                    <p>Reach out for inquiries, quotes, or support anytime.</p>
 
-    <form onsubmit="sendEmail(event)">
-        <div class="position-relative mx-auto" style="max-width: 400px;">
-            <input id="userEmail" class="form-control border-0 w-100 py-3 ps-4 pe-5" type="email" placeholder="Your email" required>
+                    <form onsubmit="sendEmail(event)">
+                        <div class="position-relative mx-auto" style="max-width:400px;">
+                            <input id="userEmail" class="form-control border-0 w-100 py-3 ps-4 pe-5" type="email" placeholder="Your email" required>
+                            <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        </div>
+                    </form>
+                </div>
 
-            <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">
-                SignUp
-            </button>
-        </div>
-    </form>
-</div>
-
-<script>
-function sendEmail(event) {
-    event.preventDefault();
-
-    let email = document.getElementById("userEmail").value;
-
-    let subject = "New Signup Request";
-    let body = "Hello, I want to sign up. My email is: " + email;
-
-    window.location.href =
-        "mailto:info@Jostplumbingsolutions.co.ke?subject=" +
-        encodeURIComponent(subject) +
-        "&body=" +
-        encodeURIComponent(body);
-}
-</script>
             </div>
         </div>
+
         <div class="container">
             <div class="copyright">
                 <div class="row">
+
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                         &copy; <a class="border-bottom" href="">2026 Jost Plumbing Solutions Ltd.</a>, All Right Reserved.
                     </div>
+
                     <div class="col-md-6 text-center text-md-end">
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                         Developed By <a class="border-bottom" href="https://legends-technologies.vercel.app/">Legends Technologies Ltd.</a>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
-    <!-- Footer End -->
 
+    <!-- EMAIL SIGNUP SCRIPT -->
+    <script>
+        function sendEmail(event) {
+            event.preventDefault();
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
+            var email = document.getElementById("userEmail").value;
+            var subject = "New Signup Request";
+            var body = "Hello, I want to sign up. My email is: " + email;
 
+            window.location.href =
+                "mailto:info@Jostplumbingsolutions.co.ke?subject=" +
+                encodeURIComponent(subject) +
+                "&body=" +
+                encodeURIComponent(body);
+        }
+    </script>
 
-    <!-- JavaScript Libraries -->
+    <!-- BACK TO TOP -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <!-- JAVASCRIPT LIBRARIES -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
@@ -1128,8 +2018,7 @@ function sendEmail(event) {
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-    <!-- Template Javascript -->
     <script src="js/main.js"></script>
-</body>
 
+</body>
 </html>
